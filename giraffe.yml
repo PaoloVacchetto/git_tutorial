@@ -1,0 +1,65 @@
+#commento
+
+#oggetto -> creatocon l'indentazione
+#lo scope si definsice con l'indentazione
+
+person:
+  name : "Paolo"
+  #coppie chiave-valore per creazione varibili
+  occupation : "jr developer"
+  age: 25
+  birthday : 17-05-1996
+  #liste di item
+  #primo modo 
+  hobbies: 
+    -sport
+    -movies
+    -fishing
+  #secondo modo
+  movies : ["avengers", "Coco"]
+
+  #creazione di oggetti in una lista
+  #tutti e tre i modi di creare gli oggetti sono equivalenti
+  friends:
+    #come visto sopra ma in una lista
+    - name : "katia"
+      age : 22
+    #usando le graffe 
+    - {name: "Adam", age : 22}
+    #andando a capo dopo - (serve per ordinare graficamente) 
+    -
+      name: "joe"
+      age: 23
+  
+  #devo aggiungere una descrizione lunga
+  #voglio che sia leggibile sul mio IDE
+  # metto il simbolo > e yaml fa in modo che l'andare a capo
+  # venga ignorato. Il testo rimane uguale 
+  # renderizzato bene nel mio IDE  
+  description: >
+    Il glutine (dal latino gluten = colla) è 
+    un complesso alimentare costituito principalmente da proteine.
+    Si tratta di un composto peptidico tipicamente contenuto 
+    in alcuni cereali, soprattutto nel grano
+    o frumento e simili (spelta, farro, triticale, kamut),
+    ma anche nella segale, nell'orzo e spesso nell'avena .
+  # con | viene preservato lo stile d'indentazione. ciò che
+  # viene dopo viene visto come scritto bell'IDE
+  signature: | 
+    Paolo
+    Page93
+    p.vacchetto@Page93.it
+
+  #ancorare i valori
+  #ancorando i valori cambiando name su in cima 
+  #si aggiorna anche in ID   
+  id: *name # Paolo
+
+  #si possono ancorare interi oggetti
+  base: &base
+    var1: value1
+    var2: value2
+  foo: 
+    << : *base #var1 : value1 ; var2 : value2
+
+
